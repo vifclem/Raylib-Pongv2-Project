@@ -1,22 +1,64 @@
 #include "raylib.h"
-#include <iostream>
+#include <string>
+#include <math.h>
+#include "Ball.h"
 
-using namespace std;
 
-int main() {
+Ball ball;
+Vector2 ballPos = { 200, 200 };
+int speed = 5;
 
-    
-    cout << "Hello World" << endl;
+void Update();
+void Draw();
 
-    InitWindow(300, 300, "My first Raylib window!");
-    SetTargetFPS(60);
+int main(void)
+{
+	const int screenWidth = 800;
+	const int screenHight = 450;
 
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground(DARKGREEN);
-        EndDrawing();
-    }
+	InitWindow(screenWidth, screenHight, " Test game");
 
-    CloseWindow();
-    return 0;
+	SetTargetFPS(60);
+
+	while (!WindowShouldClose())
+	{
+		//update
+		Update();
+
+		//Draw
+		Draw();
+
+
+	}
+
+	CloseWindow();
+
+	return 0;
+}
+
+
+
+void Update() {
+
+
+	if (IsKeyDown(KEY_W)) ballPos.y -= speed;
+	if (IsKeyDown(KEY_S)) ballPos.y += speed;
+	if (IsKeyDown(KEY_D)) ballPos.x += speed;
+	if (IsKeyDown(KEY_A)) ballPos.x -= speed;
+
+	ball.Update();
+
+
+
+}
+
+void Draw() {
+    ball.Draw();
+
+	BeginDrawing();
+	ClearBackground(WHITE);
+	DrawFPS(20, 20);
+	DrawRectangle(ballPos.x, ballPos.y, 20, 20, RED);
+
+	EndDrawing();
 }
