@@ -75,3 +75,7 @@ void Ball::VerticalBounce(int newY) {
 RectangleI Ball::GetRect() {
 	return RectangleI{ positionX, positionY, radus, radus};
 }
+
+int Ball::GetX() {
+	return positionX;
+}

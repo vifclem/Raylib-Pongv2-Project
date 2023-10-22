@@ -29,7 +29,7 @@ public:
 	void VerticalBounce(int newY);
 	void Update();
 	void Draw();
-
+	int GetX();
 
 };
 

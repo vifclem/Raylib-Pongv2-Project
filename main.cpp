@@ -9,13 +9,20 @@ Ball ball;
 Paddle paddleR;
 Paddle paddleL;
 
+#pragma region Points
+int PlayerPoints = 0;
+int AIpoints = 0;
+#pragma endregion
+
+
 void Update();
 void Draw();
+const int screenWidth = 800;
+const int screenHight = 450;
 
 int main(void)
 {
-	const int screenWidth = 800;
-	const int screenHight = 450;
+	
 
 	InitWindow(screenWidth, screenHight, " Test game");
 	paddleR = Paddle(screenWidth - 80, 200, 21, 128, 5, false);
@@ -63,22 +70,27 @@ void Update() {
 	}
 #pragma endregion
 
+#pragma region PointsCount
+	if (ball.GetX() > screenHight) {
+		++PlayerPoints;
+	}
+	if (ball.GetX() < 0) {
+		++AIpoints;
+	}
+#pragma endregion
+
+
 }
 
 void Draw() {
-    ball.Draw();
-	paddleL.Draw();
-	paddleR.Draw();
 	BeginDrawing();
 	ClearBackground(WHITE);
 	DrawFPS(20, 20);
 
+    ball.Draw();
+	paddleL.Draw();
+	paddleR.Draw();
+	
+
 	EndDrawing();
-}
-
-void Collision() {
-	
-
-	
-
 }
