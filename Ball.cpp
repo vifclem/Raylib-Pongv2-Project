@@ -4,7 +4,8 @@
 
 
 
-Ball::Ball(int positionX, int positionY, int speedx, int speedy, float radus, Color color) {
+
+Ball::Ball(int positionX, int positionY, int speedx, int speedy, int radus, Color color) {
 
 	positionX = GetRandomValue(0, GetScreenWidth());
 	positionY = GetRandomValue(0, GetScreenHeight());
@@ -69,4 +70,8 @@ void Ball::HorizontalBounce(int newX) {
 void Ball::VerticalBounce(int newY) {
 	speedy = -speedy;
 	positionY = newY;
+}
+
+RectangleI Ball::GetRect() {
+	return RectangleI{ positionX, positionY, radus, radus};
 }

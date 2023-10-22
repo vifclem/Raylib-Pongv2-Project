@@ -11,7 +11,7 @@ Paddle::Paddle(int Px, int Py, int PsizeX, int PsizeY, int Pspeedy, bool Pleft) 
 }
 
 Paddle::Paddle() {
-    x = 0;
+    x = 50;
     y = 200;
     sizeX = 21;
     sizeY = 128;
@@ -22,6 +22,10 @@ Paddle::Paddle() {
 
 Paddle::~Paddle() {
 
+}
+
+RectangleI Paddle::GetRect() {
+    return RectangleI{ x, y, sizeX, sizeY };
 }
 
 

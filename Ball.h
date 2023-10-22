@@ -1,6 +1,7 @@
 #pragma once
 #include <raylib.h>
 #include <math.h>
+#include "Collision.h"
 
 
 
@@ -11,7 +12,7 @@ private:
 	int positionY;
 	int speedx;
 	int speedy;
-	float radus;
+	int radus;
 	Color color;
 
 
@@ -19,10 +20,11 @@ private:
 public:
 
 	int bounceNumer;
-	Ball(int positionX, int positionY, int speedx, int speedy, float radus, Color color);
+	Ball(int positionX, int positionY, int speedx, int speedy, int radus, Color color);
 	Ball();
 	~Ball();
 
+	RectangleI GetRect();
 	void HorizontalBounce(int newX);
 	void VerticalBounce(int newY);
 	void Update();

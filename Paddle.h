@@ -1,7 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "Ball.h"
-
+#include "Collision.h"
 
 class Paddle
 {
@@ -22,6 +22,7 @@ public:
 
 
 	//other
+	RectangleI GetRect();
 	void Update();
 	void Draw();
 	void MoveUp();
