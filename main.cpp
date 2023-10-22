@@ -2,11 +2,11 @@
 #include <string>
 #include <math.h>
 #include "Ball.h"
+#include "Paddle.h"
 
 
 Ball ball;
-Vector2 ballPos = { 200, 200 };
-int speed = 5;
+Paddle paddle;
 
 void Update();
 void Draw();
@@ -41,12 +41,10 @@ int main(void)
 void Update() {
 
 
-	if (IsKeyDown(KEY_W)) ballPos.y -= speed;
-	if (IsKeyDown(KEY_S)) ballPos.y += speed;
-	if (IsKeyDown(KEY_D)) ballPos.x += speed;
-	if (IsKeyDown(KEY_A)) ballPos.x -= speed;
-
+	
+	paddle.Update();
 	ball.Update();
+
 
 
 
@@ -54,11 +52,10 @@ void Update() {
 
 void Draw() {
     ball.Draw();
-
+	paddle.Draw();
 	BeginDrawing();
 	ClearBackground(WHITE);
 	DrawFPS(20, 20);
-	DrawRectangle(ballPos.x, ballPos.y, 20, 20, RED);
 
 	EndDrawing();
 }

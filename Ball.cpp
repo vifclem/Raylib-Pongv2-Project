@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include <raylib.h>
+#include <cstdlib> 
 
 
 
@@ -52,14 +53,12 @@ void Ball::Update() {
 	}
 	if (positionX < 0) HorizontalBounce(0);
 
-
-	if (bounceNumer > 10) DrawText("First wave over", 300, 225, 40, RED);
 }
 
 void Ball::Draw() {
 
 	DrawCircle(positionX, positionY, radus, color);
-	if (bounceNumer > 3) DrawCircle(positionX, positionY, radus, RED);
+	if (bounceNumer > 3) DrawCircle(positionX, positionY, radus, BLUE);
 }
 
 
